@@ -4,6 +4,7 @@
 #nullable enable
 
 using System.Collections;
+using System.Reflection;
 
 namespace Microsoft.EntityFrameworkCore;
 

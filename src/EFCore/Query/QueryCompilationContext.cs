@@ -160,15 +160,15 @@ public class QueryCompilationContext
     {
         var queryAndEventData = Logger.QueryCompilationStarting(Dependencies.Context, _expressionPrinter, query);
         query = queryAndEventData.Query;
-
+        
         query = _queryTranslationPreprocessorFactory.Create(this).Process(query);
         // Convert EntityQueryable to ShapedQueryExpression
-        query = _queryableMethodTranslatingExpressionVisitorFactory.Create(this).Visit(query);
+        query = _queryableMethodTranslatingExpressionVisitorFactory.Create(this).Visit(query); 
         query = _queryTranslationPostprocessorFactory.Create(this).Process(query);
 
         // Inject actual entity materializer
         // Inject tracking
-        query = _shapedQueryCompilingExpressionVisitorFactory.Create(this).Visit(query);
+        query = _shapedQueryCompilingExpressionVisitorFactory.Create(this).Visit(query); // here
 
         // If any additional parameters were added during the compilation phase (e.g. entity equality ID expression),
         // wrap the query with code adding those parameters to the query context

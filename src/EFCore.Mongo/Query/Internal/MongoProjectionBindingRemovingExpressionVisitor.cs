@@ -1,17 +1,26 @@
-// Licensed to the .NET Foundation under one or more agreements.
+﻿// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 
 #nullable disable
 
-namespace Microsoft.EntityFrameworkCore.Cosmos.Query.Internal;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Mongo.Query.Internal;
+using Microsoft.EntityFrameworkCore.Query;
+using System.Linq.Expressions;
 
-public partial class CosmosShapedQueryCompilingExpressionVisitor
+namespace Microsoft.EntityFrameworkCore.Mongo.Query.Internal;
+
+/// <summary>
+/// ddd.
+/// </summary>
+public partial class MongoShapedQueryCompilingExpressionVisitor
 {
-    private sealed class CosmosProjectionBindingRemovingExpressionVisitor : CosmosProjectionBindingRemovingExpressionVisitorBase
+    private sealed class MongoProjectionBindingRemovingExpressionVisitor : MongoProjectionBindingRemovingExpressionVisitorBase
     {
         private readonly SelectExpression _selectExpression;
 
-        public CosmosProjectionBindingRemovingExpressionVisitor(
+        public MongoProjectionBindingRemovingExpressionVisitor(
             SelectExpression selectExpression,
             ParameterExpression jObjectParameter,
             bool trackQueryResults)
@@ -27,7 +36,8 @@ public partial class CosmosShapedQueryCompilingExpressionVisitor
         {
             if (projectionBindingExpression.ProjectionMember != null)
             {
-                return _selectExpression.GetMappedProjection(projectionBindingExpression.ProjectionMember).GetConstantValue<int>();
+                var projection = _selectExpression.GetMappedProjection(projectionBindingExpression.ProjectionMember);
+                return projection.GetConstantValue<int>();
             }
             else
             {

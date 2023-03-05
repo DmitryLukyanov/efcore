@@ -15,7 +15,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace System;
 
-[DebuggerStepThrough]
+//[DebuggerStepThrough]
 internal static class SharedTypeExtensions
 {
     private static readonly Dictionary<Type, string> BuiltInTypeNames = new()

@@ -1,0 +1,23 @@
+{
+  "solution": {
+    "path": "All.sln",
+    "projects": [
+      "..\\efcore_v2-mongo-csharp-driver\\mongo-csharp-driver\\src\\MongoDB.Bson\\MongoDB.Bson.csproj",
+      "..\\efcore_v2-mongo-csharp-driver\\mongo-csharp-driver\\src\\MongoDB.Driver.Core\\MongoDB.Driver.Core.csproj",
+      "..\\efcore_v2-mongo-csharp-driver\\mongo-csharp-driver\\src\\MongoDB.Driver\\MongoDB.Driver.csproj",
+      "src\\EFCore.Abstractions\\EFCore.Abstractions.csproj",
+      "src\\EFCore.Analyzers\\EFCore.Analyzers.csproj",
+      "src\\EFCore.Cosmos\\EFCore.Cosmos.csproj",
+      "src\\EFCore.InMemory\\EFCore.InMemory.csproj",
+      "src\\EFCore.Mongo\\EFCore.Mongo.csproj",
+      "src\\EFCore.Proxies\\EFCore.Proxies.csproj",
+      "src\\EFCore\\EFCore.csproj",
+      "test\\EFCore.Cosmos.FunctionalTests\\EFCore.Cosmos.FunctionalTests.csproj",
+      "test\\EFCore.Cosmos.Tests\\EFCore.Cosmos.Tests.csproj",
+      "test\\EFCore.Mongo.Tests\\EFCore.Mongo.Tests.csproj",
+      "test\\EFCore.InMemory.FunctionalTests\\EFCore.InMemory.FunctionalTests.csproj",
+      "test\\EFCore.Specification.Tests\\EFCore.Specification.Tests.csproj",
+      "test\\EFCore.Tests\\EFCore.Tests.csproj"
+    ]
+  }
+}

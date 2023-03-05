@@ -3,10 +3,10 @@
 
 #nullable enable
 
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using JetBrains.Annotations;
-using Microsoft.EntityFrameworkCore.Diagnostics;
+using NotNullAttribute = System.Diagnostics.CodeAnalysis.NotNullAttribute;
 
 namespace Microsoft.EntityFrameworkCore.Utilities;
 
@@ -38,7 +38,7 @@ internal static class Check
         {
             NotEmpty(parameterName, nameof(parameterName));
 
-            throw new ArgumentException(AbstractionsStrings.CollectionArgumentIsEmpty(parameterName));
+            throw new ArgumentException("AbstractionsStrings.CollectionArgumentIsEmpty(parameterName)");
         }
 
         return value;
@@ -58,7 +58,7 @@ internal static class Check
         {
             NotEmpty(parameterName, nameof(parameterName));
 
-            throw new ArgumentException(AbstractionsStrings.ArgumentIsEmpty(parameterName));
+            throw new ArgumentException("AbstractionsStrings.ArgumentIsEmpty(parameterName)");
         }
 
         return value;
@@ -70,7 +70,7 @@ internal static class Check
         {
             NotEmpty(parameterName, nameof(parameterName));
 
-            throw new ArgumentException(AbstractionsStrings.ArgumentIsEmpty(parameterName));
+            throw new ArgumentException("AbstractionsStrings.ArgumentIsEmpty(parameterName)");
         }
 
         return value;
@@ -99,12 +99,12 @@ internal static class Check
     {
         NotNull(value, parameterName);
 
-        if (value.Any(s => string.IsNullOrWhiteSpace(s)))
-        {
-            NotEmpty(parameterName, nameof(parameterName));
+        //if (value.Any(s => string.IsNullOrWhiteSpace(s)))
+        //{
+        //    NotEmpty(parameterName, nameof(parameterName));
 
-            throw new ArgumentException(AbstractionsStrings.CollectionArgumentHasEmptyElements(parameterName));
-        }
+        //    throw new ArgumentException("AbstractionsStrings.CollectionArgumentHasEmptyElements(parameterName)");
+        //}
 
         return value;
     }

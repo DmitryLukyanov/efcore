@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <SignAssembly>False</SignAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Shared\Check.cs" Link="Check.cs" />
+    <Compile Include="..\Shared\EnumerableMethods.cs" Link="EnumerableMethods.cs" />
+    <Compile Include="..\Shared\ExpressionExtensions.cs" Link="ExpressionExtensions.cs" />
+    <Compile Include="..\Shared\MethodInfoExtensions.cs" Link="MethodInfoExtensions.cs" />
+    <Compile Include="..\Shared\SharedTypeExtensions.cs" Link="SharedTypeExtensions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\efcore_v2-mongo-csharp-driver\mongo-csharp-driver\src\MongoDB.Bson\MongoDB.Bson.csproj" />
+    <ProjectReference Include="..\..\..\efcore_v2-mongo-csharp-driver\mongo-csharp-driver\src\MongoDB.Driver.Core\MongoDB.Driver.Core.csproj" />
+    <ProjectReference Include="..\..\..\efcore_v2-mongo-csharp-driver\mongo-csharp-driver\src\MongoDB.Driver\MongoDB.Driver.csproj" />
+    <ProjectReference Include="..\EFCore\EFCore.csproj" PrivateAssets="contentfiles;build" />
+    <ProjectReference Condition="'$(BuildingByReSharper)' != 'true'" Include="..\EFCore.Analyzers\EFCore.Analyzers.csproj" ReferenceOutputAssembly="False" OutputItemType="Analyzer" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2022.3.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+  </ItemGroup>
+
+</Project>
